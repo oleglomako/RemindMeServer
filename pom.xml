@@ -7,16 +7,25 @@
     <groupId>com.oleglomako.remindme.server</groupId>
     <artifactId>com.oleglomako.remindme.server</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>  <!-- указываем что у нас будет веб архив war -->
+
+    <!-- указываем что у нас будет веб архив war -->
+    <packaging>war</packaging>
+
+
+    <!-- выносим версии пакетов в properties хоткей мак Command + Options + v винда ctrl+alt+v-->
+    <!-- чтобы было удобно потом менять версии в одном месте-->
+    <properties>
+        <spring.version>4.2.3.RELEASE</spring.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+    </properties>
 
 
     <dependencies>
-
         <!-- подключаем spring-core-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>4.2.3.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <!-- подключаем spring-webmvc-->
@@ -24,7 +33,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>4.2.3.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
 
         <!-- подключаем javax.servlet-api от нее зависит метод onStartup в классе ApplicationInitialiser -->
@@ -32,10 +41,8 @@
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <version>${javax.servlet-api.version}</version>
         </dependency>
-
-
     </dependencies>
 
 </project>
