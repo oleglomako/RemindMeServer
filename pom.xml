@@ -7,6 +7,35 @@
     <groupId>com.oleglomako.remindme.server</groupId>
     <artifactId>com.oleglomako.remindme.server</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>  <!-- указываем что у нас будет веб архив war -->
 
+
+    <dependencies>
+
+        <!-- подключаем spring-core-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>4.2.3.RELEASE</version>
+        </dependency>
+
+        <!-- подключаем spring-webmvc-->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.2.3.RELEASE</version>
+        </dependency>
+
+        <!-- подключаем javax.servlet-api от нее зависит метод onStartup в классе ApplicationInitialiser -->
+        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+
+    </dependencies>
 
 </project>
