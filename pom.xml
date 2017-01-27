@@ -17,10 +17,13 @@
     <properties>
         <spring.version>4.2.3.RELEASE</spring.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <spring-data-jpa.version>1.9.1.RELEASE</spring-data-jpa.version>
+        <hibernate.version>5.0.5.Final</hibernate.version>
     </properties>
 
 
     <dependencies>
+
         <!-- подключаем spring-core-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -43,6 +46,27 @@
             <artifactId>javax.servlet-api</artifactId>
             <version>${javax.servlet-api.version}</version>
         </dependency>
+
+        <!-- для работы с базой данных -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data-jpa.version}</version>
+        </dependency>
+
+        <!-- для работы с базой данных -->
+        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+
     </dependencies>
+
+
+
 
 </project>
