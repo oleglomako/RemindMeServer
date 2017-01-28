@@ -20,6 +20,7 @@
         <spring-data-jpa.version>1.9.1.RELEASE</spring-data-jpa.version>
         <hibernate.version>5.0.5.Final</hibernate.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
+        <commons-dbcp2.version>2.1.1</commons-dbcp2.version>
     </properties>
 
 
@@ -32,6 +33,7 @@
             <version>${spring.version}</version>
         </dependency>
 
+        <!-- WEB -->
         <!-- подключаем spring-webmvc-->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <dependency>
@@ -48,6 +50,7 @@
             <version>${javax.servlet-api.version}</version>
         </dependency>
 
+        <!-- DATABASE -->
         <!-- для работы с базой данных АХТУНГ не позволяет работать с очень сложными запросами-->
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
         <dependency>
@@ -70,6 +73,14 @@
             <groupId>postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>${postgresql.version}</version>
+        </dependency>
+
+        <!-- для создания пула соединений -->
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>${commons-dbcp2.version}</version>
         </dependency>
 
 
