@@ -2,6 +2,7 @@ package com.oleglomako.remindme.server.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Component;
@@ -28,6 +29,8 @@ import javax.annotation.Resource;
 // говорим где искать все репозитории и конфиги
 @ComponentScan("com.oleglomako.remindme.server")
 
+// чтобы конфигурация знала о файле db.properties
+@PropertySource("classpath:db.properties")
 public class DatabaseConfig {
 
     // с его помощю получим доступ к нашим проперти файлам
