@@ -20,5 +20,5 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 // говорим где искать все наши бины - все наши (контроллеры) классы, компоненты, репозитории
 @ComponentScan("com.oleglomako.remindme.server")
 
-public class WebConfig extends WebMvcConfigurerAdapter{
+public class WebConfig extends WebMvcConfigurerAdapter {
 }
