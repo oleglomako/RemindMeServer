@@ -1,7 +1,6 @@
 package com.oleglomako.remindme.server.controller;
 
 import com.oleglomako.remindme.server.entity.Remind;
-import com.oleglomako.remindme.server.repository.RemindRepository;
 import com.oleglomako.remindme.server.sevice.ReminderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -37,28 +36,28 @@ public class ReminderController {
     @ResponseBody
     // возвращает все напоминания
     public List<Remind> getAllReminders() {
-        return service.findAll();
+        return service.getAll();
     }
 
     // вернем одно напоминание по ид
     @RequestMapping(value = "/reminders/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Remind getReminder(@PathVariable("id") long remindID) {
-        return service.findOne(remindID);
+        return service.getByID(remindID);
     }
 
     // запишем в базу одно напоминание
     @RequestMapping(value = "/reminders", method = RequestMethod.POST)
     @ResponseBody
     public Remind saveReminder(@RequestBody Remind remind) {
-        return service.saveAndFlush(remind);
+        return service.save(remind);
     }
 
     // удвлим из базы одно напоминание по ид
     @RequestMapping(value = "/reminders/{id}", method = RequestMethod.POST)
     @ResponseBody
     public void delete(@PathVariable long id) {
-        service.delete(id);
+        service.remove(id);
     }
 
 }
