@@ -12,7 +12,7 @@ import java.util.List;
  */
 
 @Service
-public class ReminderServiceImpl implements ReminderService{
+public class ReminderServiceImpl implements ReminderService {
 
     // данные сервисы могут выполнять разную логику
     // TODO тут можно подключить наши репозитории их может быть несколько -> @

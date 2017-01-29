@@ -79,7 +79,7 @@ public class DatabaseConfig {
 
     // конфигурируем поддержку транзакций
     @Bean
-    public PlatformTransactionManager transactionManager(){
+    public PlatformTransactionManager transactionManager() {
         JpaTransactionManager manager = new JpaTransactionManager();
         manager.setEntityManagerFactory(entityManagerFactory().getObject());
 

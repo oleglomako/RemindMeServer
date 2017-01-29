@@ -7,7 +7,7 @@ import java.util.Date;
 
 /**
  * Created by oleg on 28.01.17.
- *
+ * <p>
  * сущность из бд таблица remind
  */
 
