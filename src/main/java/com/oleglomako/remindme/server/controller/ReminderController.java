@@ -1,10 +1,12 @@
 package com.oleglomako.remindme.server.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import com.oleglomako.remindme.server.entity.Remind;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Date;
 
 /**
  * Created by oleg on 27.01.17.
@@ -16,8 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * базируясь на реквесте и респонсе запрос-ответ
  */
 
-// этой аннотацией говорим что этот клас будет контроллером это и есть наш сервлет
-@Controller
+// этой аннотацией говорим что этот клас будет РЕСТ-контроллером это и есть наш сервлет
+@RestController
 
 // основной контроллер
 // на который будут идти все запросы
@@ -33,9 +35,18 @@ public class ReminderController {
     // говорим что в виде тела ответа хотим вернуть строку
     @ResponseBody
 
-    // в качестве параметра передаем модель для отображения например название html страницы или jsp стрраницы
-    public String gerReminder(ModelMap model) {
-        return "My reminder";
+    // для отображения html страницы или jsp стрраницы
+    public Remind getReminder() {
+        return createMockRemind();
+    }
+
+    private Remind createMockRemind() {
+        Remind remind = new Remind();
+        remind.setId(1);
+        remind.setRemindDate(new Date());
+        remind.setTitle("My first remind");
+
+        return remind;
     }
 
 }
