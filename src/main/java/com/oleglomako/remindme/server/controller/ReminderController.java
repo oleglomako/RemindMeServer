@@ -3,10 +3,7 @@ package com.oleglomako.remindme.server.controller;
 import com.oleglomako.remindme.server.entity.Remind;
 import com.oleglomako.remindme.server.repository.RemindRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -27,34 +24,41 @@ import java.util.List;
 // основной контроллер
 // на который будут идти все запросы
 // и из которого будут идти все ответы к нашему RemindMe приложению
-// говорим как попасть на наш контроллер например http://localhost:8080/reminder/
-@RequestMapping("/reminder")
-
 public class ReminderController {
 
     // проверяем работу наших репозиториев
     @Autowired   // говорим проинициализировать наш обьект
     private RemindRepository remindRepository;
 
-    // возвращаем строку методом GET напр http://localhost:8080/reminder/get
-    @RequestMapping(value = "/get", method = RequestMethod.GET)
-
-    // говорим что в виде тела ответа хотим вернуть строку
+    // возвращаем строку методом GET
+    // говорим как попасть на наш контроллер например http://localhost:8080/reminders/
+    @RequestMapping(value = "/reminders", method = RequestMethod.GET)
+    // для отображения html страницы или jsp страницы
     @ResponseBody
-
-    // для отображения html страницы или jsp стрраницы
-    public Remind getReminder() {
-        List<Remind> all = remindRepository.findAll();
-        return createMockRemind();
+    // возвращает все напоминания
+    public List<Remind> getAllReminders() {
+        return remindRepository.findAll();
     }
 
-    private Remind createMockRemind() {
-        Remind remind = new Remind();
-        remind.setId(1);
-        remind.setRemindDate(new Date());
-        remind.setTitle("My first remind");
+    // вернем одно напоминание по ид
+    @RequestMapping(value = "/reminders/{id}", method = RequestMethod.GET)
+    @ResponseBody
+    public Remind getReminder(@PathVariable("id") long remindID) {
+        return remindRepository.findOne(remindID);
+    }
 
-        return remind;
+    // запишем в базу одно напоминание
+    @RequestMapping(value = "/reminders", method = RequestMethod.POST)
+    @ResponseBody
+    public Remind saveReminder(@RequestBody Remind remind) {
+        return remindRepository.saveAndFlush(remind);
+    }
+
+    // удвлим из базы одно напоминание по ид
+    @RequestMapping(value = "/reminders/{id}", method = RequestMethod.POST)
+    @ResponseBody
+    public void delete(@PathVariable long id) {
+        remindRepository.delete(id);
     }
 
 }
