@@ -1,12 +1,15 @@
 package com.oleglomako.remindme.server.controller;
 
 import com.oleglomako.remindme.server.entity.Remind;
+import com.oleglomako.remindme.server.repository.RemindRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by oleg on 27.01.17.
@@ -29,6 +32,10 @@ import java.util.Date;
 
 public class ReminderController {
 
+    // проверяем работу наших репозиториев
+    @Autowired   // говорим проинициализировать наш обьект
+    private RemindRepository remindRepository;
+
     // возвращаем строку методом GET напр http://localhost:8080/reminder/get
     @RequestMapping(value = "/get", method = RequestMethod.GET)
 
@@ -37,6 +44,7 @@ public class ReminderController {
 
     // для отображения html страницы или jsp стрраницы
     public Remind getReminder() {
+        List<Remind> all = remindRepository.findAll();
         return createMockRemind();
     }
 
