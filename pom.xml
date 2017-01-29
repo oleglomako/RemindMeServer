@@ -34,6 +34,7 @@
             <version>${spring.version}</version>
         </dependency>
 
+
         <!-- WEB -->
         <!-- подключаем spring-webmvc-->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
@@ -51,6 +52,15 @@
             <version>${javax.servlet-api.version}</version>
         </dependency>
 
+        <!-- для конвертации обьектов в JSON -->
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.7.1</version>
+        </dependency>
+
+
         <!-- DATABASE -->
         <!-- для работы с базой данных АХТУНГ не позволяет работать с очень сложными запросами-->
         <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
@@ -67,7 +77,6 @@
             <artifactId>jta</artifactId>
             <version>${jta.version}</version>
         </dependency>
-
 
         <!-- провайдер JPA - hibernate для работы с базой данных -->
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager -->
@@ -92,7 +101,6 @@
             <artifactId>commons-dbcp2</artifactId>
             <version>${commons-dbcp2.version}</version>
         </dependency>
-
 
     </dependencies>
 
