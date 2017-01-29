@@ -2,10 +2,10 @@ package com.oleglomako.remindme.server.controller;
 
 import com.oleglomako.remindme.server.entity.Remind;
 import com.oleglomako.remindme.server.repository.RemindRepository;
+import com.oleglomako.remindme.server.sevice.ReminderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,7 +28,7 @@ public class ReminderController {
 
     // проверяем работу наших репозиториев
     @Autowired   // говорим проинициализировать наш обьект
-    private RemindRepository remindRepository;
+    private ReminderService service;
 
     // возвращаем строку методом GET
     // говорим как попасть на наш контроллер например http://localhost:8080/reminders/
@@ -37,28 +37,28 @@ public class ReminderController {
     @ResponseBody
     // возвращает все напоминания
     public List<Remind> getAllReminders() {
-        return remindRepository.findAll();
+        return service.findAll();
     }
 
     // вернем одно напоминание по ид
     @RequestMapping(value = "/reminders/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Remind getReminder(@PathVariable("id") long remindID) {
-        return remindRepository.findOne(remindID);
+        return service.findOne(remindID);
     }
 
     // запишем в базу одно напоминание
     @RequestMapping(value = "/reminders", method = RequestMethod.POST)
     @ResponseBody
     public Remind saveReminder(@RequestBody Remind remind) {
-        return remindRepository.saveAndFlush(remind);
+        return service.saveAndFlush(remind);
     }
 
     // удвлим из базы одно напоминание по ид
     @RequestMapping(value = "/reminders/{id}", method = RequestMethod.POST)
     @ResponseBody
     public void delete(@PathVariable long id) {
-        remindRepository.delete(id);
+        service.delete(id);
     }
 
 }
