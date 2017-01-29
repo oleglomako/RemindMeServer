@@ -54,7 +54,7 @@ public class ReminderController {
     }
 
     // удвлим из базы одно напоминание по ид
-    @RequestMapping(value = "/reminders/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/reminders/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public void delete(@PathVariable long id) {
         service.remove(id);
