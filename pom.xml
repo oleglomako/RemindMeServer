@@ -15,7 +15,7 @@
     <!-- выносим версии пакетов в properties хоткей мак Command + Options + v винда ctrl+alt+v-->
     <!-- чтобы было удобно потом менять версии в одном месте-->
     <properties>
-        <spring.version>4.2.2.RELEASE</spring.version>
+        <spring.version>5.2.7.RELEASE</spring.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <spring-data-jpa.version>1.9.2.RELEASE</spring-data-jpa.version>
         <hibernate.version>5.0.2.Final</hibernate.version>
