@@ -22,7 +22,7 @@
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <commons-dbcp2.version>2.1.1</commons-dbcp2.version>
         <jta.version>1.1</jta.version>
-        <jackson-databind.version>2.5.3</jackson-databind.version>
+        <jackson-databind.version>2.13.4.1</jackson-databind.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> <!-- задаем кодировку  UTF-8-->
     </properties>
